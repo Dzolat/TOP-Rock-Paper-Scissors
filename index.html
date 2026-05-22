@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
         <title>Rock Paper Scissors</title>
-        <script src="script.js"></script>
+        <script src="script.js" defer></script>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <p style="display: flex; align-items: center; justify-content: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:aqua;font-size: 100px;">Check Console!</p>
+        <div id="buttons">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+        <div id="results">
+            <div id="scores">
+                <p id="computer_score">Computer: 0</p>
+                <p id="human_score">Human: 0</p>
+            </div>
+            <div id="current">
+                <p id="current_paragraph">Start by clicking one of the buttons above...</p>
+            </div>
+        </div>
     </body>
 </html>

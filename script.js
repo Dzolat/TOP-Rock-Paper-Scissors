@@ -1,6 +1,14 @@
 let humanScore = 0
 let computerScore = 0
 
+let rockBtn = document.getElementById("rock");
+let paperBtn = document.getElementById("paper");
+let scissorsBtn = document.getElementById("scissors");
+
+let currentParagraph = document.getElementById("current_paragraph")
+let computerScoreElement = document.getElementById("computer_score")
+let humanScoreElement = document.getElementById("human_score")
+
 function getComputerChoice()
 {
     let Numb = Math.random() * 3
@@ -12,12 +20,7 @@ function getComputerChoice()
         return "Scissors"
 }
 
-function getHumanChoice()
-{
-    return prompt("Please choose one of the three: Rock, Paper, Scissors")
-}
-
-function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerChoice())
+function playRound(humanChoice, computerChoice = getComputerChoice())
 {
     humanChoice = humanChoice.toLowerCase()
     computerChoice = computerChoice.toLowerCase()
@@ -50,7 +53,19 @@ function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerC
     }
     
     let answer = getAnswer()
-    console.log(answer)
+
+    if (answer == 1) {
+        currentParagraph.textContent = "You lost!"
+        computerScore++
+        computerScoreElement.textContent = "Computer: " + computerScore
+    } else if (answer == 2) {
+        currentParagraph.textContent = "You won!"
+        humanScore++
+        humanScoreElement.textContent = "Human: " + humanScore
+    } else {
+        currentParagraph.textContent = "Tie!"
+    }
+
     if (answer == 1)
         return "Computer"
     else if (answer == 2)
@@ -59,33 +74,7 @@ function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerC
         return "Tie"
 }
 
-function finishRound()
-{
-    let humanChoice = getHumanChoice()
-    let computerChoice = getComputerChoice()
-    let roundWon = playRound(humanChoice, computerChoice)
 
-    console.log(`Your choice: ${humanChoice}\nComputer's choice: ${computerChoice}`)
-    
-    if (roundWon == "Computer")
-    {
-        console.log("You lost!")
-        computerScore++;
-
-    }
-    else if (roundWon == "Human")
-    {
-        console.log("You won!")
-        humanScore++;
-    }
-    else 
-        console.log("Tie!")
-
-    console.log(`Current scores:\nYou: ${humanScore}\nComputer: ${computerScore}`)
-}
-
-finishRound();
-finishRound();
-finishRound();
-finishRound();
-finishRound();
+rockBtn.addEventListener("click", () => playRound("Rock"))
+paperBtn.addEventListener("click", () => playRound("Paper"))
+scissorsBtn.addEventListener("click", () => playRound("Scissors"))

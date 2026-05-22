@@ -1,0 +1,28 @@
+* {
+    font-family:"Quicksand", sans-serif;
+}
+
+#buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#scores {
+    display: flex;
+    gap: 20px
+}
+
+button {
+    width: 10vw;
+    height: 10vh;
+    border-radius: 30%;
+}
